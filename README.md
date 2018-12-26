@@ -1,5 +1,5 @@
 # blog-challenge
-It's challenge time. Submit your blog post into your folder *at least once every week*. 
+Hello engineers. It's challenge time. Submit your blog post **at least once every week**. 
 
 ## How to start
 1. Clone this project into your folder by `git clone https://github.com/jd1386/blog-challenge.git`
