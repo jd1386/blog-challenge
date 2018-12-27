@@ -9,3 +9,4 @@ Hello engineers. It's challenge time. Submit your blog post **at least once by t
 5. The markdown filename should be formatted as `yymmdd.md` e.g., 181226.md.
 6. Fill the markdown file with your post content.
 7. **Important!** Make a commit and push to this repository's master branch by the end of every Saturday, so others can keep track of your posts.
+8. Please make sure to *watch* this repo, should you wish to follow posts from your peer engineers.
