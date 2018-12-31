@@ -18,7 +18,7 @@
 
 - 각각의 저장소를 clone한 뒤에 ① ② ③ ④ 순서를 반복하면서 진행된다.
 
-  ![flow](/Users/walli/Dev/Git_repo/TIL/flow.png)
+  ![flow](./flow.png)
 
 
 
