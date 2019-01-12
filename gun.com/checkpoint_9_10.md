@@ -29,3 +29,16 @@ doStuff(myArray);
 ```
 
 myArray는 [2,3,4,5]를 참조하고 arr은 []를 참조하므로 myArray는 그대로
+
+
+
+### checkpoint 10
+
+```javascript
+let obj = {
+    a: 'hi',
+    b: obj.a
+}
+```
+
+이 문제를 틀린 이유: obj가 완전히 선언되기 전에 obj.a를 불러왔으므로 ReferenceError가 난다.
