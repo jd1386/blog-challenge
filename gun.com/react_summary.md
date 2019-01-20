@@ -80,5 +80,52 @@ const func = (param) => {console.log(param)}
 () => {func(target)}
 ```
 
+또한 async와 await에 대한 정리인데 아직 완벽히 숙지가 되지 않은 개념이지만 현재까지의 이해로 작성해본다면 async는 비동기적으로 함수를 실행하기 위해 앞에 달아주는 것뿐이고 await는 그 부분에서 멈춰있다가 해당부분에 제대로 된 값이 들어오면 그 후에 다음 코드들을 실행해 주는것 같다.
 
+```java	
+_getMovies = async () => {
+    const movies = await this._callApi();
+    this.setState({
+      movies
+    });
+  };
+
+  _callApi = () => {
+    return fetch(
+      "https://yts.am/api/v2/list_movies.json?sort_by=download_count"
+    )
+      .then(potato => potato.json())
+      .then(json => json.data.movies)
+      .catch(err => console.log(err));
+  };
+```
+
+
+
+React에서의 fetch에 대한 부분도 짚고 넘어갈 필요가 있는데, 내가 사용했을 때는 fetch를 통해 Data를 state의 한 속성으로 넘겨주는 것이 가장 효율적이었다. 하지만 상속을 해주는 자식 컴포넌트 또는 파일에서 fetch로 받아온 후 state를 변경시켜줘야 할 경우도 있는데 그땐 callback으로 바꾸어 주면 된다.
+
+```java	
+//fetch로 state변경하는 예
+_callApi = () =>{
+	fetch(url)
+        .then(res => res.json())
+        .then(json => this.setState({
+            movies
+        }))
+}
+
+//자식에서 fetch로 변경하는 예
+//자식
+_callApi = (callback) => {
+	fetch(url)
+        .then(res => res.json())
+        .then(json => callback(json))
+}
+//부모
+getData = () => {
+    _callApi((target) => this.setState({
+        movies: target
+    }))
+}
+```
 
