@@ -1,0 +1,50 @@
+**git push origin --delete < branchname >  remote에 있는 branch를 삭제하는 방법
+
+react에서 socket io로 server에 연결하는 방법은 server 측에선 다음과 같이 열어주면 된다.
+
+```javascript
+const express = require('express');
+const http = require('http');
+const socketio = require('socket.io');
+
+const app = express();
+const server = http.Server(app);
+const websocket = socketio(server);
+server.listen(3000, () => console.log('listening on *:3000'));
+
+websocket.on('connection', socket => {
+  console.log('A client just joined on', socket.id);
+  socket.on('i need name', () => {
+    console.log('this is signal');
+    socket.emit('here is name', 'yugun');
+  });
+});
+```
+
+제일 중요한 점은 on은 요청을 받고 emit은 요청을 보내주는 것이다. 이것은 client도 마찬가지이니 꼭 기억해둬야 한다.
+
+client는 server보다 더 간단한데 예시 코드는 다음과 같다.
+
+```javascript
+import SocketIOClient from 'socket.io-client';
+
+var socket = SocketIOClient(
+  'http://ec2-34-201-173-255.compute-1.amazonaws.com:8080'
+);
+
+class App extends Component {
+    componentDidMount() {
+    socket.on(localStorage.getItem('restaurant_id'), order => {
+      alert('새 주문이 왔어요!');
+      console.log(order);
+      this.setState({
+        ...this.state,
+        orderData: [order, ...this.state.orderData]
+      });
+    });
+  }
+}
+```
+
+ 이때 중요한 점이 react에서는 보통 socket.on이 componentDidMount에 들어온다는 것이다. 그리고 on 다음의 첫 번째 parameter가 요청을 주고 받을 때 키와 같은 역할을 한다는 것이다. 
+
