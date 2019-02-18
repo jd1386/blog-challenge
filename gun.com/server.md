@@ -87,6 +87,13 @@ common JS -> module exports와 같은 것들을 쓰는 총체적인 것들
 
 서버가 하는일 CRUD 
 
+Http 관련문서 보기 node 공식 docs를 많이 참고하기 read http module of node.js
+ What is a difference between Export and module.exports?
+
+what is between blocking and sync
+
+npm install 을 하면 dependency에 있는 것들이 install이 된다
+
 
 
 

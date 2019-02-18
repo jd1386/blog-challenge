@@ -25,4 +25,35 @@ mapToDispatch를 한 곳에 몰아서 써야할지 아니면 필요한 곳들에
 const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 ```
 
-위와 같이 store를 넘겨주면 크롬개발자도구에서 redux의 활동을 하나하나 다 볼 수 있다.
+#### **위와 같이 store를 넘겨주면 크롬개발자도구에서 redux의 활동을 하나하나 다 볼 수 있다.
+
+
+
+### redux의 각 repo의 역할
+
+action은 무슨일이 일어났다만 정보만 담음
+
+reducer에서 일을 함
+
+예상해놓은 액션만 행동을 함
+
+dispatcher가 교통정리를 함
+
+redducer는 순수함수다(같은 input에는 같은 output을 줌)
+
+항상 dispatch 함수를 거쳐 reducer에 가야한다.(유일한 길이다)
+ 
+
+reducer에선 dispatch하면 안된다.  
+
+**redux의 장점: 한방향으로 가는건 디버깅이 용이함.**
+
+Object.assign은 (a,b,c) a,b,c라는 object를 다 통합시켜줌 같은 값이 있으면 마지막 c의 값이 최종값
+  
+
+reducer에 있는 함수가 한개면 초기값이 object하나니까 가리킬때 state.value와 같이 한번에 가리키면 되지만
+
+함수가 두개면 combine시켜줬으니까 가리킬 때 state.counter.value와 같이 한번더 거쳐서 가리켜야한다.
+
+
+  
